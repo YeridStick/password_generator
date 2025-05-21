@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas Seguras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generador de Contraseñas Seguras</h1>
+            <p>Crea contraseñas aleatorias que cumplen con todos los requisitos de seguridad</p>
+        </header>
+
+        <main>
+            <div class="password-generator">
+                <div class="password-display">
+                    <input type="text" id="password-output" readonly placeholder="Tu contraseña aparecerá aquí">
+                    <button id="copy-button" title="Copiar al portapapeles">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="options">
+                    <div class="length-option">
+                        <label for="password-length">Longitud de la contraseña:</label>
+                        <div class="length-control">
+                            <button id="decrease-length" class="length-btn">-</button>
+                            <input type="number" id="password-length" min="8" value="12">
+                            <button id="increase-length" class="length-btn">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="customize-toggle">
+                        <button id="toggle-customize" class="toggle-btn">
+                            <i class="fas fa-sliders-h"></i> Personalizar requisitos
+                        </button>
+                    </div>
+                    
+                    <div id="customize-panel" class="customize-panel hidden">
+                        <h3>Personaliza los requisitos de la contraseña:</h3>
+                        <div class="custom-options">
+                            <div class="option-item">
+                                <input type="checkbox" id="req-length-toggle" checked>
+                                <label for="req-length-toggle">Longitud mínima</label>
+                                <input type="number" id="min-length" value="8" min="4" max="64">
+                            </div>
+                            
+                            <div class="option-item">
+                                <input type="checkbox" id="req-uppercase-toggle" checked>
+                                <label for="req-uppercase-toggle">Al menos una letra mayúscula</label>
+                            </div>
+                            
+                            <div class="option-item">
+                                <input type="checkbox" id="req-lowercase-toggle" checked>
+                                <label for="req-lowercase-toggle">Al menos una letra minúscula</label>
+                            </div>
+                            
+                            <div class="option-item">
+                                <input type="checkbox" id="req-digit-toggle" checked>
+                                <label for="req-digit-toggle">Al menos un número</label>
+                            </div>
+                            
+                            <div class="option-item">
+                                <input type="checkbox" id="req-special-toggle" checked>
+                                <label for="req-special-toggle">Al menos un carácter especial</label>
+                                <input type="text" id="special-chars" value="¿¡?=)(/¨*+-%&$#!">
+                            </div>
+                            
+                            <div class="option-item">
+                                <input type="checkbox" id="req-no-repeats-toggle" checked>
+                                <label for="req-no-repeats-toggle">Sin caracteres repetidos</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="generate-button" class="generate-btn">Generar Contraseña</button>
+
+                <div class="validation-container">
+                    <h3>Requisitos de seguridad:</h3>
+                    <ul class="requirements-list">
+                        <li id="req-length"><i class="fas fa-check"></i> Mínimo <span id="min-length-display">8</span> caracteres</li>
+                        <li id="req-uppercase"><i class="fas fa-check"></i> Al menos una letra mayúscula</li>
+                        <li id="req-lowercase"><i class="fas fa-check"></i> Al menos una letra minúscula</li>
+                        <li id="req-digit"><i class="fas fa-check"></i> Al menos un número</li>
+                        <li id="req-special"><i class="fas fa-check"></i> Al menos un carácter especial</li>
+                        <li id="req-no-repeats"><i class="fas fa-check"></i> Sin caracteres repetidos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Acerca de este generador</h2>
+                <p>Este generador crea contraseñas seguras siguiendo los criterios personalizables que elijas:</p>
+                <ul>
+                    <li>Longitud personalizable (mínimo personalizable, por defecto 8 caracteres)</li>
+                    <li>Puedes incluir o excluir: mayúsculas, minúsculas, números y caracteres especiales</li>
+                    <li>Opciones para permitir o no caracteres repetidos</li>
+                    <li>La asignación de caracteres es completamente aleatoria</li>
+                </ul>
+                <p>Las contraseñas generadas se adaptan a tus necesidades específicas mientras mantienen la máxima seguridad posible según los criterios seleccionados.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Desarrollado por Yerid Stick Ramirez Guzman - Universidad Nacional Abierta y a Distancia - 2025</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
