@@ -1,4 +1,4 @@
-# Generador de Contraseñas - Guía Rápida
+# Generador de Contraseñas
 
 ## Descripción
 Esta es una aplicación web para generar contraseñas seguras con opciones personalizables. Permite ajustar la longitud y los tipos de caracteres incluidos en las contraseñas generadas.
